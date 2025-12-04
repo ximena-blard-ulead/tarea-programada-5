@@ -40,6 +40,3 @@ class Reina(Pieza):
                 movimientos.append(f"{columna}-{self.fila}")
 
         return movimientos
-
-    def explicacion_de_movimiento(self):
-        return f" Puede desplazarse tantas casillas como desee a derecha e izquierda horizontalmente o bien hacia delante o hacia atrás de forma vertical (como la torre). Además, la dama puede moverse también tantas casillas como desee en diagonal (como el alfil)."

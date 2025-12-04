@@ -23,9 +23,6 @@ class Caballo(Pieza):
 
         for dx, dy in direcciones:
             if 0 <= dx < 7 and 1 <= dy <= 8:
-                movimientos.append(f"{c.COLUMNAS[dx]}{dy}")
+                movimientos.append(f"{c.COLUMNAS[dx]}-{dy}")
 
         return movimientos
-    
-    def explicacion_de_movimiento(self):
-        return f"Se mueve una casilla a la derecha o a la izquierda horizontalmente y otras dos hacia delante o hacia atrás de forma vertical, O BIEN dos casillas a la derecha o a la izquierda horizontalmente y otra hacia delante o hacia atrás de forma vertical—en otras palabras, el caballo salta describiendo la forma de una 'L'."

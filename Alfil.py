@@ -28,6 +28,3 @@ class Alfil(Pieza):
                     break  
 
         return movimientos
-    
-    def explicacion_de_movimiento(self):
-        return f"Puede desplazarse en diagonal, tantas casillas como desee, siempre y cuando no esté bloqueado por sus propias piezas o la casilla en la quiera situarse ya esté ocupada."

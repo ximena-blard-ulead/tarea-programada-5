@@ -17,9 +17,9 @@ class Pieza(ABC):
     def listar_movimientos_posibles(self):
         pass
 
-    @abstractmethod
-    def consultar_movimiento(self):
-        pass
+    def consultar_movimiento(self, destino):
+        movimientos_posibles = self.listar_movimientos_posibles()
+        return destino in movimientos_posibles
 
     @property
     def nombre(self):

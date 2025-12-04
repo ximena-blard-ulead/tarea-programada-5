@@ -7,14 +7,15 @@ from Caballo import Caballo
 from Peon import Peon
 
 def procesar_opcion(opcion):
-    if opcion == 1:
+    acciones = {
+        1: consultar_posibles_movimientos,
+        2: consultar_movimiento_posible,
+    }
+
+    if opcion in acciones:
         tipo = seleccionar_tipo_pieza()
         pieza = leer_info_pieza(tipo)
-        consultar_posibles_movimientos(pieza)
-    elif opcion == 2:
-        tipo = seleccionar_tipo_pieza()
-        pieza = leer_info_pieza(tipo)  
-        consultar_movimiento_posible(pieza)
+        acciones[opcion](pieza)
     elif opcion == 3:
         print("Gracias por jugar! Nos vemos :)")
     else:
@@ -33,17 +34,17 @@ def seleccionar_tipo_pieza():
         6: Peon
     }
 
-    return piezas.get(opcion)
+    return piezas[opcion]
 
 def leer_info_pieza(tipo):
     columna = input("\nIngrese la columna de la pieza (a - h): ").lower()
     fila = int(input("\nIngrese la fila de la pieza (1 - 8): "))
 
-    # Crear la pieza con la posición indicada
-    if tipo == "Peon":
-        color = input("\nIngrese la columna de la pieza (a - h): ")
+    if tipo is Peon:
+        color = input("\nIngrese el color de la pieza: ").lower
+        pieza = tipo(columna, fila, color)
+    else: 
         pieza = tipo(columna, fila)
-    pieza = tipo(columna, fila)
 
     return pieza
 
@@ -57,14 +58,15 @@ def consultar_posibles_movimientos(pieza):
         for mov in movimientos:
             print(f"- {mov}")
 
+def leer_info_movimiento():
+    columna_destino = input("\nIngrese la columna destino para verificar (a - h): ")
+    fila_destino = input("\nIngrese la fila destino para verificar (1 - 8): ")
+    return f"{columna_destino}-{fila_destino}"
+
 def consultar_movimiento_posible(pieza):
-    columna_destino = input("\nIngrese la columna destino para verificar: ")
-    fila_destino = input("\nIngrese la fila destino para verificar: ")
-    destino = f"{columna_destino}-{fila_destino}"
+    destino = leer_info_movimiento()
 
-    movimientos = pieza.listar_movimientos_posibles()
-
-    if destino in movimientos:
-        print(f"\nEl movimiento a {columna_destino}-{fila_destino} es válido.")
+    if pieza.consultar_movimiento(destino):
+        print(f"\nEl movimiento a {destino} es válido.")
     else:
-        print(f"\nEl movimiento a {columna_destino}-{fila_destino} NO es válido.")
+        print(f"\nEl movimiento a {destino} NO es válido.")

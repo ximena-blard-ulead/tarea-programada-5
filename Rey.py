@@ -23,9 +23,6 @@ class Rey(Pieza):
 
         for dx, dy in direcciones:
             if 0 <= dx < 7 and 1 <= dy <= 8:
-                movimientos.append(f"{c.COLUMNAS[dx]}{dy}")
+                movimientos.append(f"{c.COLUMNAS[dx]}-{dy}")
 
         return movimientos
-
-    def explicacion_de_movimiento(self):
-        return f"El rey no es una pieza muy poderosa, ya que solo puede desplazarse (o capturar) una casilla en cualquier dirección."

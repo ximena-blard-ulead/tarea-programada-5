@@ -20,6 +20,3 @@ class Torre(Pieza):
                 movimientos.append(f"{columna}-{self.fila}")
 
         return movimientos
-    
-    def explicacion_de_movimiento(self):
-        return "Puede desplazarse en línea recta tantas casillas como desee, tanto a la derecha como a la izquierda, ya sea horizontal o verticalmente (siempre y cuando no esté bloqueada por otras piezas)"
