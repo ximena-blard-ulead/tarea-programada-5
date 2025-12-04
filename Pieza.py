@@ -1,6 +1,7 @@
 from data import constantes as c
+from abc import ABC, abstractmethod
 
-class Pieza:
+class Pieza(ABC):
 
     def __init__(self, nombre, columna, fila):
         if fila not in c.FILAS:
@@ -11,21 +12,36 @@ class Pieza:
         self.__nombre = nombre
         self.__columna = columna
         self.__fila = fila
-
-    def __str__(self):
-        return f"La pieza: {self.__nombre} se encuentra en la posición: {self.__columna}-{self.__fila}."
     
+    @abstractmethod
     def listar_movimientos_posibles(self):
-        return f"Esta función se debe implementar en las clases hijas"
+        pass
+
+    @abstractmethod
+    def consultar_movimiento(self):
+        pass
+
+    @property
+    def nombre(self):
+        return self.__nombre
     
-    def explicacion_de_movimiento(self):
-        return "movimiento x"
+    @nombre.setter
+    def nombre(self, new_nombre):
+        self.__nombre = new_nombre
     
     @property
     def fila(self):
         return self.__fila
     
+    @fila.setter
+    def fila(self, new_fila):
+        self.__fila = new_fila
+    
     @property
     def columna(self):
         return self.__columna
+    
+    @columna.setter
+    def columna(self, new_columna):
+        self.__columna = new_columna
     
