@@ -1,4 +1,4 @@
-import app_ajedrez
+import ui.app_ajedrez as app_ajedrez
 
 def main():
     app_ajedrez.ejecutar()

@@ -1,5 +1,5 @@
-import menu_manager
-import controller
+import ui.menu_manager as menu_manager
+import ui.controller as controller
 
 def ejecutar():
     opcion = 0

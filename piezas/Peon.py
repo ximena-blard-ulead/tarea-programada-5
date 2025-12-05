@@ -1,4 +1,4 @@
-from Pieza import Pieza
+from piezas.Pieza import Pieza
 
 class Peon(Pieza):
 

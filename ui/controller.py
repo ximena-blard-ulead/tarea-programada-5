@@ -1,10 +1,11 @@
-import menu_manager as m
-from Torre import Torre
-from Alfil import Alfil
-from Reina import Reina
-from Rey import Rey
-from Caballo import Caballo
-from Peon import Peon
+import ui.menu_manager as m
+from piezas.Torre import Torre
+from piezas.Alfil import Alfil
+from piezas.Reina import Reina
+from piezas.Rey import Rey
+from piezas.Caballo import Caballo
+from piezas.Peon import Peon
+
 
 def procesar_opcion(opcion):
     acciones = {
@@ -41,12 +42,11 @@ def leer_info_pieza(tipo):
     fila = int(input("\nIngrese la fila de la pieza (1 - 8): "))
 
     if tipo is Peon:
-        color = input("\nIngrese el color de la pieza: ").lower
-        pieza = tipo(columna, fila, color)
-    else: 
-        pieza = tipo(columna, fila)
+        color = input("\nIngrese el color de la pieza (blanco/negro): ").lower()
+        return tipo(columna, fila, color)
 
-    return pieza
+    return tipo(columna, fila)
+
 
 def consultar_posibles_movimientos(pieza):
     movimientos = pieza.listar_movimientos_posibles()

@@ -1,14 +1,13 @@
-from Pieza import Pieza
+from piezas.Pieza import Pieza
 from data import constantes as c
 
-class Reina(Pieza):
+class Alfil(Pieza):
 
     def __init__(self, columna, fila):
-        super().__init__("reina", columna, fila)
+        super().__init__("alfil", columna, fila)
 
     def listar_movimientos_posibles(self):
         movimientos = []
-        # Movimiento alfil
         col_indice = c.COLUMNAS.index(self.columna) #6
 
         direcciones = [
@@ -26,17 +25,6 @@ class Reina(Pieza):
                 if 0 <= nueva_col <= 7 and 1 <= nueva_fila <= 8:
                     movimientos.append(f"{c.COLUMNAS[nueva_col]}-{nueva_fila}")
                 else:
-                    break
-
-        # Movimiento torre
-        # Vertical
-        for fila in c.FILAS:
-            if fila != self.fila:
-                movimientos.append(f"{self.columna}-{fila}")
-
-        # Horizontal
-        for columna in c.COLUMNAS:
-            if columna != self.columna:
-                movimientos.append(f"{columna}-{self.fila}")
+                    break  
 
         return movimientos

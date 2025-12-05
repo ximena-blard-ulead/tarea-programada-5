@@ -1,4 +1,4 @@
-from Pieza import Pieza
+from piezas.Pieza import Pieza
 from data import constantes as c
 
 class Caballo(Pieza):
